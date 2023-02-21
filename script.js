@@ -32,36 +32,43 @@ const getData = (data) =>{
     </div>
 
 <div class="meal-body">
+<div>
 <div class="media">
 ${data.meals[0].strMealThumb ? `<img src="${data.meals[0].strMealThumb}">` : ""}
 
-${data.meals[0].strYoutube ?
-`<div class="video">
-<h3>Recipe video</h3>
-<iframe src="https://www.youtube.com/embed/${data.meals[0].strYoutube.slice(-11)}"></iframe>
-</div>`:""}
 </div>
+${data.meals[0].strYoutube ?
+    `<h3 class = "recipe-video">Recipe video</h3>
+    <div class="video">
+    
+    <iframe src="https://www.youtube.com/embed/${data.meals[0].strYoutube.slice(-11)}"></iframe>
+    </div>`:""}
+    </div>
 
 <div class="meal-description">
+<div>
+
+<h3 class="meal-instructions" >Ingredients:</h3>
+
 <div class="ingredients">
 
-<h3>Ingredients:</h3>
 
 <ul>
 ${ingredients.map(ingredient => 
    `<li>${ingredient}</li>`).join("")}
 </ul>
-
 </div>
+</div>
+<div>
 
+<h3 class="meal-instructions">Cooking Instructions: </h3>
 <div class="cooking-instructions" >
-<h3>Cooking Instructions: </h3>
 <p>${data.meals[0].strInstructions}</p>
 </div>
 </div>
-
 </div>
 
+</div>
     `
 
 }
